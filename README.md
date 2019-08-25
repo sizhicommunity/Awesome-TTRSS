@@ -1,3 +1,9 @@
+# 这个Fork
+
+这个Fork主要是希望能适配Kubernetes。由于以阿里云为代表的公有云不再支持docker-compose。Kubernetes的适配是必要的。
+
+（以下为原README）
+
 # 🐋 Awesome TTRSS
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/wangqiru/ttrss.svg)](https://hub.docker.com/r/wangqiru/ttrss)
