@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    control-plane.alpha.kubernetes.io/leader: '{"holderIdentity":"36755b64-c4ad-11e9-a8e7-80e65019c734","leaseDurationSeconds":15,"acquireTime":"2019-08-23T02:58:20Z","renewTime":"2019-08-23T02:58:22Z","leaderTransitions":0}'
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: docker.io/hostpath
+  creationTimestamp: null
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    io.kompose.service: postgres-data
+  name: postgres-data
+  selfLink: /api/v1/namespaces/default/persistentvolumeclaims/postgres-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: hostpath
+  volumeMode: Filesystem
+  volumeName: pvc-dac744d5-c551-11e9-a38a-025000000001
+status: {}
