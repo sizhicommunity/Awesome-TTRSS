@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: service-mercury
+  name: service-mercury
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: service-mercury
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: service-mercury
+    spec:
+      containers:
+      - image: wangqiru/mercury-parser-api:latest
+        imagePullPolicy: Always
+        name: mercury
+      restartPolicy: Always

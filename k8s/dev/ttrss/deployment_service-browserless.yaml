@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: service-browserless
+  name: service-browserless
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: service-browserless
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: service-browserless
+    spec:
+      containers:
+      - image: browserless/chrome
+        imagePullPolicy: Always
+        name: service-browserless
+      restartPolicy: Always

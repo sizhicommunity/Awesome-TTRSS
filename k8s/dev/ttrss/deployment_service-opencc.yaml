@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: service-opencc
+  name: service-opencc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: service-opencc
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        io.kompose.service: service-opencc
+    spec:
+      containers:
+      - env:
+        - name: NODE_ENV
+          value: production
+        image: wangqiru/opencc-api-server:latest
+        imagePullPolicy: Always
+        name: opencc
+      restartPolicy: Always
