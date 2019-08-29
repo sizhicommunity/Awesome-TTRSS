@@ -40,9 +40,9 @@ spec:
           value: auth_internal,fever
         - name: SELF_URL_PATH
           value: http://localhost:181/
-        - name: TTRSS_SINGLEUSER
+        - name: SINGLE_USER_MODE
           value: "true"
-        image: wangqiru/ttrss:latest
+        image: wangqiru/ttrss:nightly
         imagePullPolicy: Always
         name: ttrss
         ports:
